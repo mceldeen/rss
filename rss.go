@@ -69,7 +69,7 @@ type Feed struct {
 func (f *Feed) Update() error {
 
 	// Check that we don't update too often.
-	if f.Refresh.After(time.Now()) {
+	if !f.Refresh.After(time.Now()) {
 		return nil
 	}
 
